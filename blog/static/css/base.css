@@ -1,0 +1,106 @@
+/* --- تنظیمات کلی و فونت --- */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* --- نگهدارنده اصلی لیست --- */
+.post-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.list-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* --- هر آیتم در لیست --- */
+.post-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between; /* محتوا و تگ‌ها را از هم جدا می‌کند */
+    align-items: center;
+    flex-wrap: wrap; /* برای نمایش بهتر در موبایل */
+    gap: 15px; /* فاصله بین بخش محتوا و تگ‌ها در موبایل */
+    transition: all 0.3s ease-in-out;
+    border-right: 5px solid transparent; /* برای افکت هاور */
+}
+
+.post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-right-color: #3498db; /* رنگ اصلی شما */
+}
+
+/* --- بخش محتوا (عنوان و تاریخ) --- */
+.post-content h2 {
+    margin: 0 0 8px 0;
+}
+
+.post-content h2 a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-content h2 a:hover {
+    color: #3498db;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* --- استایل تگ‌ها (Badge) --- */
+.post-tags {
+    display: flex;
+    gap: 8px; /* فاصله بین تگ‌ها */
+    flex-wrap: wrap;
+    justify-content: flex-end; /* تگ‌ها را به سمت چپ می‌چسباند */
+}
+
+.tag-badge {
+    background-color: #eaf2f8;
+    color: #3498db;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap; /* جلوگیری از شکستن کلمه در تگ */
+    transition: all 0.3s ease;
+}
+
+.tag-badge:hover {
+    background-color: #3498db;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* --- واکنشگرایی برای موبایل --- */
+@media (max-width: 600px) {
+    .post-item {
+        flex-direction: column; /* آیتم‌ها زیر هم قرار میگیرند */
+        align-items: flex-start; /* همه چیز از راست شروع می‌شود */
+    }
+
+    .post-tags {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+}
