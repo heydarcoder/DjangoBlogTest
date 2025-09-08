@@ -1,5 +1,89 @@
 {% extends "parent/base.html" %}
 {% load static %} {# فراموش نشود #}
+{% block head %}
+	<style>
+/* فایل: static/css/blog-style.css */
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(to right, #f3e7fe, #e0c3fc);
+    color: #3d0066;
+    margin: 0;
+    padding: 0;
+}
+
+.post-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffffdd;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(128, 0, 128, 0.2);
+}
+
+.list-title {
+    font-size: 2.2em;
+    text-align: center;
+    color: #6a0dad;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #d8b4fe;
+    padding-bottom: 10px;
+}
+
+.post-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-left: 4px solid #b266ff;
+    background-color: #faf5ff;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+}
+
+.post-content h2 a {
+    color: #4b0082;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.post-content h2 a:hover {
+    color: #8000ff;
+    text-decoration: underline;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #6b6b6b;
+    margin-top: 5px;
+}
+
+.post-tags {
+    margin-top: 15px;
+}
+
+.tag-badge {
+    display: inline-block;
+    background-color: #d8b4fe;
+    color: #4b0082;
+    padding: 6px 12px;
+    margin: 4px 4px 0 0;
+    border-radius: 20px;
+    font-size: 0.85em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.tag-badge:hover {
+    background-color: #b266ff;
+    color: #fff;
+}
+
+	</style>
+{% endblock %}
 
 {% block title %} لیست پست‌ها {% endblock %}
 
@@ -33,3 +117,4 @@
 	</div>
 	{% include "partial/pagination.html" with page=page_obj %}
 {% endblock %}
+//PAGE_OBJ IS  A VARIALBLE FROM PAGINATOR CLASS I ERSBARI

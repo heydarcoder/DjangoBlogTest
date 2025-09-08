@@ -1,7 +1,38 @@
 {% extends "parent/base.html" %}
-{% block title %} post detail{% endblock %}
+{% load static %}
+{% block head %}
+
+	<style>
+
+	/* فایل: static/css/blog-style.css */
+
+	</style>
+{% endblock %}
+{% block title %}جزئیات پست{% endblock %}
+
 {% block content %}
-	<h1>post detail</h1>
-	{{ post.title }}
-	{{ post.get_absolute_url }}
+<div class="post-detail-container">
+    <h1 class="detail-title">📌 {{ post.title }}</h1>
+
+    <div class="detail-meta">
+        <span>آدرس دائمی: <a href="{{ post.get_absolute_url }}">{{ post.get_absolute_url }}</a></span>
+    </div>
+
+    <div class="detail-body">
+        {% if post.body %}
+            <p>{{ post.body|linebreaks }}</p>
+        {% else %}
+            <p>محتوایی برای این پست ثبت نشده است.</p>
+        {% endif %}
+    </div>
+
+    <div class="detail-tags">
+        {% for tag in post.tags.all %}
+            <a href="#" class="tag-badge">{{ tag.name }}</a>
+        {% empty %}
+            <span class="no-tags">بدون تگ</span>
+        {% endfor %}
+    </div>
+</div>
+{% include "forms/comment.html" %}
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "parent/base.html" %}
+{% block title %}result of search {% endblock %}
+
+{% block content %}
+	{% if query %}
+
+		نتایح جستجو برای {{ query }}
+		تعداد پست های یافت شده  :{{ results.count }}
+	{% endif %}
+{%for post in results %}
+	<a href="{{ post.get_absolute_url  }}">{{ post.title }}</a>
+	<p>{{ post.description }}</p>
+{%endfor%}
+
+
+
+
+{%endblock%}

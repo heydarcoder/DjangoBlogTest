@@ -48,3 +48,21 @@ class Ticket(models.Model):
     phone = models.CharField(max_length=250 , verbose_name="شماره تماس")
     name = models.CharField(max_length=250 , verbose_name=" نام")
     subject = models.CharField(max_length=250 , verbose_name=" موضوع تیکت")
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post , on_delete=models.CASCADE , related_name="comments" , verbose_name="پست")
+    name = models.CharField(max_length=250)
+    massage = models.CharField(max_length=250)
+    email = models.EmailField(max_length=250)
+    created = models.DateTimeField(auto_now_add =True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['-created']
+        verbose_name = "کامنت"
+        verbose_name_plural = "کامنت ها"
+
+    def __str__(self):
+        return self.massage

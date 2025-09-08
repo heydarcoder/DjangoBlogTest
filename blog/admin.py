@@ -25,3 +25,10 @@ class TicketAdmin(admin.ModelAdmin):
         verbose_name_plural = "تیکت ها"
     def __str__(self):
         return self.subject
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ["name" , "massage" , "email"]
+    search_fields = ["name" , "massage" , "email"]
+    list_filter = ["name" , "massage" , "email"]
+    list_editable = ["massage" , "email"]

@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
-<h1> header</h1>
-</body>
-</html>
+<form method="get"  action="{% url "blog:searchpost" %}">
+    <input type="text"  name="query" required placeholder="کلمه خود را وارد کنید">
+    <input type="submit" value="جستجو">
+</form>
